@@ -1,0 +1,47 @@
+---
+
+- name: Copy public key to authorized_keys
+  authorized_key:
+    user: "{{ ssh_user }}"
+    key: "{{ lookup('file', ssh_public_key_path) }}"
+    state: present
+  tags: ["setKey"]
+
+- name: Check SSH connection status
+  delegate_to: localhost
+  command: ssh -T -o ConnectTimeout=10 -i {{ ansible_ssh_private_key_file }} -p {{ ansible_ssh_port }} {{ ansible_ssh_user }}@{{ ansible_ssh_host }} exit
+  register: ssh_connection_status
+  changed_when: false
+  tags: ["authPass"]
+
+- name: Fail task if SSH connection with private key fails
+  fail:
+    msg: "SSH connection with private key failed."
+  when: ssh_connection_status.failed
+  tags: ["authPass"]
+
+- name: Proceed to next tasks if SSH connection with private key is successful
+  debug:
+    msg: "SSH connection with private key is successful"
+  tags: ["authPass"]
+  when: not ssh_connection_status.failed
+
+- name: Disable SSH password authentication
+  become: true
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: '^#\s*PasswordAuthentication\s+yes'
+    replace: 'PasswordAuthentication no'
+  tags: ["authPassDisable"]
+  notify:
+    - restart ssh service
+
+- name: Enable SSH password authentication
+  become: true
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: '^\s*PasswordAuthentication\s+no'
+    replace: '#PasswordAuthentication yes'
+  tags: ["authPassEnable"]
+  notify:
+    - restart ssh service

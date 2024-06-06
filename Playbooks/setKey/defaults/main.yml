@@ -1,0 +1,4 @@
+---
+# defaults file for setKey
+ssh_user: test
+ssh_public_key_path: files/linusoid.pub

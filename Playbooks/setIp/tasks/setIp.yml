@@ -1,0 +1,14 @@
+---
+- name: Copy netPlan to Dest
+  become: true
+  copy:
+    src: "../setIp/files/00-installer-config.yaml"
+    dest: "/etc/netplan/00-installer-config.yaml"
+  tags: "setIp"
+
+- name: apply netplan
+  become: true
+  shell: netplan apply
+  timeout: 10
+  ignore_errors: yes
+  tags: "setIp"

@@ -1,0 +1,14 @@
+---
+# tasks file for addUser
+- name: Add user
+  become: true
+  user:
+    name: '{{ user_name }}'
+    password: '{{ user_pass }}'
+    shell: /bin/bash
+    home: '/home/{{ user_name }}'
+    groups: sudo
+    append: yes
+
+  tags: 
+    - adduser

@@ -1,0 +1,6 @@
+galaxy_info:
+  role_name: my_ssh_setup_role
+  author: Pintilie Dumitru
+  description: A role to copy public key to authorized_keys and disable SSH password authentication.
+  company: Your Company
+  min_ansible_version: 2.10

@@ -1,0 +1,12 @@
+all:
+  children:
+    machine:
+      hosts: 192.168.99.16
+      vars:
+        ansible_ssh_user: test
+        host_key_checking: False
+        ansible_ssh_host: 192.168.99.16
+        ansible_ssh_port: 22
+        ansible_ssh_private_key_file: "setKey/files/linusoid.key"
+        ansible_ssh_pass: "Password2022?"
+        ansible_become_pass: "Password2022?"
