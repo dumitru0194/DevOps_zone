@@ -1,0 +1,4 @@
+---
+# tasks file for showPage
+- include_tasks: showPage.yml
+  tags: ["initDocker", "initDocker-compose", "cp_compose", "buildImage"]

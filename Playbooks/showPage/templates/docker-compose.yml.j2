@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  magic-login:
+    image: registry.hora-services.md/magic-login:master_0.0.270
+    ports:
+      - "{{ EXPOSED_PORT }}:8080"
+    environment:
+      - PRODUCTION={{ PRODUCTION }}
+      - BASE_URL={{ BASE_URL }}
+      - BACKEND_URL={{ BACKEND_URL }}
+      - REDIRECT_URL={{ REDIRECT_URL }}
+      - HOS_BACKEND_URL={{ HOS_BACKEND_URL }}
+      - ALERT_BACKEND_URL={{ ALERT_BACKEND_URL }}
+      - MARKETING_URL={{ MARKETING_URL }}
+      - INSIGHTS_URL={{ INSIGHTS_URL }}
+      - GEO_SERVICE={{ GEO_SERVICE }}
+      - HOSQL_URL={{ HOSQL_URL }}
+      - RCODE={{ RCODE }}
+      - ELASTIC_LOGIN={{ ELASTIC_LOGIN }}
+      - ELASTIC_PASSWORD={{ ELASTIC_PASSWORD }}
+      - FULL_REDIRECT={{ FULL_REDIRECT }}
+      - FULL_REDIRECT_PATH={{ FULL_REDIRECT_PATH }}
+      - PARTIAL_REDIRECT_PATH={{ PARTIAL_REDIRECT_PATH }}
+      - PARTIAL_USER_LIST={{ PARTIAL_USER_LIST }}
+      - INSPECTED_CHECK_ENABLED={{ INSPECTED_CHECK_ENABLED }}

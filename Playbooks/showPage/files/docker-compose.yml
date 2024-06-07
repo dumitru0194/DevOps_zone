@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  magic-login:
+    image: registry.hora-services.md/magic-login:master_0.0.270
+    environment:
+      - PRODUCTION='!0'
+      - BASE_URL="http://192.168.99.16:8080"
+      - BACKEND_URL='test'
+      - REDIRECT_URL='test'
+      - HOS_BACKEND_URL='test'
+      - ALERT_BACKEND_URL='test'
+      - MARKETING_URL='test'
+      - INSIGHTS_URL='test'
+      - GEO_SERVICE='test'
+      - HOSQL_URL='test'
+      - RCODE='test'
+      - ELASTIC_LOGIN='test'
+      - ELASTIC_PASSWORD='test'
+      - FULL_REDIRECT='!0'
+      - FULL_REDIRECT_PATH='test'
+      - PARTIAL_REDIRECT_PATH='test'
+      - PARTIAL_USER_LIST='test'
+      - INSPECTED_CHECK_ENABLED='!0'
+    ports:
+      - "8080:8080"
