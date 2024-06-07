@@ -1,38 +1,31 @@
-Role Name
-=========
+# Run command.
+ansible-playbook -i inventory.yml showPage.yml --limit 'machine'
+                             
+                                 
+                                 ### Tags available  ####
 
-A brief description of the role goes here.
+# To install Docker + Docker-compose also to ensure that Docker is running on server.
+- initDocker
 
-Requirements
-------------
+# To generate docker-compose file from template !! image extra var is required for this.
+# To create application directory.
+cp_compose
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
-Role Variables
---------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+# To build that image this tag is used
+buildImage
 
-Dependencies
-------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
-Example Playbook
-----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+                                    ###  Extra vars available ###
+    
+# To indicate image
+image
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+# To expose port of application (default: 8080)
+exposed_port
 
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+# To set base_url (default: 'http://192.168.99.16:8080')
+base_url
