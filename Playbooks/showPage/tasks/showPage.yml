@@ -20,6 +20,7 @@
     PARTIAL_USER_LIST: "test"
     INSPECTED_CHECK_ENABLED: "!0"
     EXPOSED_PORT: "{{ exposed_port | default('8080') }}"
+    IMAGE: "{{ image }}"
   tags: cp_compose
 
 - name: Create application directory
