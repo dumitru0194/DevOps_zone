@@ -1,28 +1,4 @@
 ---
-- name: Set environment variables
-  set_fact:
-    PRODUCTION: "!0"
-    BASE_URL: "{{ base_url | default('http://192.168.99.16:8080') }}"
-    BACKEND_URL: "test"
-    REDIRECT_URL: "test"
-    HOS_BACKEND_URL: "test"
-    ALERT_BACKEND_URL: "test"
-    MARKETING_URL: "test"
-    INSIGHTS_URL: "test"
-    GEO_SERVICE: "test"
-    HOSQL_URL: "test"
-    RCODE: "test"
-    ELASTIC_LOGIN: "test"
-    ELASTIC_PASSWORD: "test"
-    FULL_REDIRECT: "!0"
-    FULL_REDIRECT_PATH: "test"
-    PARTIAL_REDIRECT_PATH: "test"
-    PARTIAL_USER_LIST: "test"
-    INSPECTED_CHECK_ENABLED: "!0"
-    EXPOSED_PORT: "{{ exposed_port | default('8080') }}"
-    IMAGE: "{{ image }}"
-  tags: cp_compose
-
 - name: Create application directory
   file:
     path: /opt/magic-login
@@ -59,3 +35,9 @@
   args:
     chdir: /opt/magic-login
   tags: buildImage
+
+- name: cptest
+  copy:
+    src: files/docker-compose.yml
+    dest: /opt/magic-login/docker-compose.yml
+  tags: cptest
