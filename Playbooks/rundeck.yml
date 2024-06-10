@@ -1,0 +1,35 @@
+---
+- name: Install Rundeck on local machine
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Update APT package index
+      apt:
+        update_cache: yes
+
+    - name: Install Java
+      apt:
+        name: openjdk-11-jdk
+        state: present
+
+    - name: Download Rundeck GPG key
+      get_url:
+        url: http://rundeck.org/keys/BUILD-GPG-KEY-Rundeck.org.key
+        dest: /usr/share/keyrings/rundeck-archive-keyring.gpg
+
+    - name: Add Rundeck repository
+      apt_repository:
+        repo: deb [signed-by=/usr/share/keyrings/rundeck-archive-keyring.gpg] http://rundeck.org/apt-stable/ stable main
+        state: present
+        update_cache: yes
+
+    - name: Install Rundeck
+      apt:
+        name: rundeck
+        state: present
+
+    - name: Ensure Rundeck is started and enabled
+      systemd:
+        name: rundeckd
+        state: started
+        enabled: yes

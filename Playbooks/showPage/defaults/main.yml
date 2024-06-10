@@ -1,19 +1,38 @@
 ---
 # defaults file for showPage
+# PRODUCTION: "!0"
+# BACKEND_URL: "test"
+# REDIRECT_URL: "test"
+# HOS_BACKEND_URL: "test"
+# ALERT_BACKEND_URL: "test"
+# MARKETING_URL: "test"
+# INSIGHTS_URL: "test"
+# GEO_SERVICE: "test"
+# HOSQL_URL: "test"
+# RCODE: "test"
+# ELASTIC_LOGIN: "test"
+# ELASTIC_PASSWORD: "test"
+# FULL_REDIRECT: "!0"
+# FULL_REDIRECT_PATH: "test"
+# PARTIAL_REDIRECT_PATH: "test"
+# PARTIAL_USER_LIST: "test"
+# INSPECTED_CHECK_ENABLED: "!0"
+
+
 PRODUCTION: "!0"
-BACKEND_URL: "test"
-REDIRECT_URL: "test"
-HOS_BACKEND_URL: "test"
-ALERT_BACKEND_URL: "test"
-MARKETING_URL: "test"
-INSIGHTS_URL: "test"
-GEO_SERVICE: "test"
-HOSQL_URL: "test"
-RCODE: "test"
+BACKEND_URL: 'https://magic2.site-master.eu/api'
+REDIRECT_URL: 'http://magic.localtest.com'
+HOS_BACKEND_URL: 'http://magic.localtest.com/hos'
+ALERT_BACKEND_URL: 'http://magic.localtest.com/alerts'
+MARKETING_URL: 'http://magic.localtest.com'
+INSIGHTS_URL: 'http://magic.localtest.com'
+GEO_SERVICE: 'http://magic.localtest.com/geo'
+HOSQL_URL: 'http://magic.localtest.com/hos'
+RCODE: "columbus"
 ELASTIC_LOGIN: "test"
 ELASTIC_PASSWORD: "test"
-FULL_REDIRECT: "!0"
-FULL_REDIRECT_PATH: "test"
-PARTIAL_REDIRECT_PATH: "test"
-PARTIAL_USER_LIST: "test"
+FULL_REDIRECT: "!0" # !0=true !1=false
+FULL_REDIRECT_PATH: "/u/driver"
+PARTIAL_REDIRECT_PATH: "/u/driver"
+PARTIAL_USER_LIST: '"User:cfYNiGVsS","User:2xd66TAOq"'
 INSPECTED_CHECK_ENABLED: "!0"

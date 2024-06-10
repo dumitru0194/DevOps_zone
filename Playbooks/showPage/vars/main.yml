@@ -1,6 +1,6 @@
 ---
 # vars file for showPage
 VERSION: "{{ version }}"
-BASE_URL: "{{ base_url | default('http://192.168.99.16:8080') }}"
+BASE_URL: "{{ base_url }}"
 EXPOSED_PORT: "{{ exposed_port | default('8080') }}"
 IMAGE: "{{ image }}"

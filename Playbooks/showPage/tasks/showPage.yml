@@ -36,8 +36,8 @@
     chdir: /opt/magic-login
   tags: buildImage
 
-- name: cptest
-  copy:
-    src: files/docker-compose.yml
-    dest: /opt/magic-login/docker-compose.yml
-  tags: cptest
+# - name: cptest
+#   copy:
+#     src: files/docker-compose.yml
+#     dest: /opt/magic-login/docker-compose.yml
+#   tags: cptest
