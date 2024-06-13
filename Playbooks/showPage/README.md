@@ -17,8 +17,6 @@ cp_compose
 buildImage
 
 
-
-
                                     ###  Extra vars available ###
     
 # To indicate image

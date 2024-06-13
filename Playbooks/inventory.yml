@@ -1,12 +1,185 @@
 all:
+
+  vars:
+    ansible_ssh_user: test
+    host_key_checking: False
+    ansible_ssh_pass: "Parola2023?"
+    ansible_become_pass: "Parola2023?"
+
   children:
-    machine:
-      hosts: 192.168.99.16
+    pavaes-supabase-21:
+      hosts: 192.168.2.21
       vars:
-        ansible_ssh_user: dockeros
-        host_key_checking: False
-        ansible_ssh_host: 192.168.99.16
-        ansible_ssh_port: 22
-        ansible_ssh_private_key_file: "setKey/files/linusoid.key"
-        ansible_ssh_pass: "test"
-        ansible_become_pass: "test"
+        ansible_ssh_port: 2221
+        ansible_ssh_pass: "Password2022?"
+        ansible_become_pass: "Password2022?"
+
+
+#   It is grafana host machine
+    # apisix-11:
+    #   hosts: 192.168.2.11
+    #   vars:
+    #     ansible_ssh_port: 2211
+
+
+    onlyoffice-16:
+      hosts: 192.168.2.16
+      vars:
+        ansible_ssh_port: 2216
+        ansible_ssh_pass: "Password2022?"
+        ansible_become_pass: "Password2022?"
+
+
+    owncloud-site-manager-14:
+      hosts: 192.168.2.14
+      vars:
+        ansible_ssh_port: 2214
+        ansible_ssh_pass: "Password2022?"
+        ansible_become_pass: "Password2022?"
+
+
+    nexus-18:
+      hosts: 192.168.2.18
+      vars:
+        ansible_ssh_user: nexus
+        ansible_ssh_port: 2218
+        ansible_ssh_pass: "Password2022?"
+        ansible_become_pass: "Password2022?"
+
+
+    couchbase-staging-25:
+      hosts: 192.168.2.25
+      vars:
+        ansible_ssh_port: 2225
+
+
+    sentry-19:
+      hosts: 192.168.2.19
+      vars:
+        ansible_ssh_port: 2219
+        ansible_ssh_pass: "Password2022?"
+        ansible_become_pass: "Password2022?"
+
+
+    supabase-22:
+      hosts: 192.168.2.22
+      vars:
+        ansible_ssh_port: 2222
+
+    
+    elk-kibana-23:
+      hosts: 192.168.2.23
+      vars:
+        ansible_ssh_port: 2223
+
+    
+    openroute-24:
+      hosts: 192.168.2.24
+      vars:
+        ansible_ssh_port: 2224
+
+    
+    GitLAb-26:
+      hosts: 192.168.2.26
+      vars:
+        ansible_ssh_port: 2226
+
+    
+    cockroach-st-28:
+      hosts: 192.168.2.28
+      vars:
+        ansible_ssh_port: 2228
+        ansible_ssh_pass: "Password2022?"
+        ansible_become_pass: "Password2022?"
+
+    
+    k3s-staging-29:
+      hosts: 192.168.2.29
+      vars:
+        ansible_ssh_port: 2229
+
+
+    runner-test1-30:
+      hosts: 192.168.2.30
+      vars:
+        ansible_ssh_port: 2230
+
+
+    # selenium-55:
+    #   hosts: 192.168.2.55
+    #   vars:
+    #     ansible_ssh_port: 2255
+
+
+    open-vswitch-38:
+      hosts: 192.168.2.38
+      vars:
+        ansible_ssh_port: 2238
+
+
+    ansible-create-user-34:
+      hosts: 192.168.2.34
+      vars:
+        ansible_ssh_port: 2234
+        ansible_ssh_pass: "Password2022?"
+        ansible_become_pass: "Password2022?"
+
+
+    cockroachdb-staging-1-40:
+      hosts: 192.168.2.40
+      vars:
+        ansible_ssh_port: 2240
+
+    
+    ubuntu-docker-57:
+      hosts: 192.168.2.57
+      vars:
+        ansible_ssh_port: 2257
+        ansible_ssh_pass: "Password2022?"
+        ansible_become_pass: "Password2022?"
+
+
+    runner-eldlink-60:
+      hosts: 192.168.2.60
+      vars:
+        ansible_ssh_port: 2260
+        ansible_ssh_pass: "Password2022?"
+        ansible_become_pass: "Password2022?"
+
+
+    asorti-44:
+      hosts: 192.168.2.44
+      vars:
+        ansible_ssh_port: 2244
+
+    
+    cockroachdb-staging-2-41:
+      hosts: 192.168.2.41
+      vars:
+        ansible_ssh_port: 2241
+
+
+    cockroachdb-staging-3-42:
+      hosts: 192.168.2.42
+      vars:
+        ansible_ssh_port: 2242
+
+
+    supabase-cluster-159-hos-backend:
+      hosts: 192.168.2.159
+      vars:
+        ansible_ssh_port: 22159
+        ansible_ssh_pass: "Parola2023?"
+        ansible_become_pass: "Parola2023?"
+
+    
+    tower-kubernetes-61:
+      hosts: 192.168.2.61
+      vars:
+        ansible_ssh_port: 2261
+    
+
+    couchbase-production-62:
+      hosts: 192.168.2.62
+      vars:
+        ansible_ssh_port: 2262

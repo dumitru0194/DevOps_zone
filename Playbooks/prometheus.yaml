@@ -1,0 +1,145 @@
+#
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+global:
+  scrape_interval: 1s     # By default, scrape targets every 15 seconds.
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+    stack: "apisix"
+
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: "prometheus"
+    # Override the global default and scrape targets from this job every 5 seconds.
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["localhost:9090"]
+
+      - targets: ["192.168.2.18:9311"]
+        labels:
+          enviroment: "nexus-18"
+
+
+
+
+      - targets: ["192.168.2.24:9311"]
+        labels:
+          enviroment: "openroute"
+
+
+
+
+      - targets: ["192.168.2.22:9311"]
+        labels:
+          enviroment: "supabase-22"
+
+
+
+
+      - targets: ["192.168.2.25:9311"]
+        labels:
+          enviroment: "couchbase-staging-25"
+
+
+
+
+      - targets: ["192.168.2.44:9311"]
+        labels:
+          enviroment: "asorti-44"
+
+
+
+
+      - targets: ["192.168.2.41:9311"]
+        labels:
+          enviroment: "cockroachdb-staging-2-41"
+
+
+
+
+      - targets: ["192.168.2.23:9311"]
+        labels:
+          enviroment: "elk-kibana-23"
+
+
+
+
+      - targets: ["192.168.2.29:9311"]
+        labels:
+          enviroment: "k3s-staging-29"
+
+
+
+
+
+      - targets: ["192.168.2.26:9311"]
+        labels:
+          enviroment: "GitLAb-26"
+
+
+
+
+      - targets: ["192.168.2.42:9311"]
+        labels:
+          enviroment: "cockroachdb-staging-42"
+
+
+
+
+      - targets: ["192.168.2.62:9311"]
+        labels:
+          enviroment: "couchbase-production-62"
+
+
+
+
+      - targets: ["192.168.2.40:9311"]
+        labels:
+          enviroment: "cockroachdb-staging-1-40"
+
+
+          
+
+      - targets: ["192.168.2.16:9311"]
+        labels:
+          enviroment: "onlyoffice-16"
+
+
+
+        
+      - targets: ["192.168.2.19:9311"]
+        labels:
+          enviroment: "sentry-19"
+
+
+
+
+      - targets: ["192.168.2.57:9311"]
+        labels:
+          enviroment: "ubuntu-docker-57"
+
+
+  - job_name: "apisix"
+    scrape_interval: 5s
+    metrics_path: "/apisix/prometheus/metrics"
+    static_configs:
+      - targets: ["apisix:9091"]

@@ -1,0 +1,43 @@
+---
+
+- name: Test SSH and list directory
+  hosts: all
+  become: true
+
+  tasks:
+
+    - name: Check Hosts
+      command: ls -la
+      tags: [checkhost]
+
+    # - name: rm directory
+    #   command: rm -rf /opt/node-exporter
+    #   tags: [rm-mistake]
+
+    - name: Create directory
+      ansible.builtin.file:
+        path: /opt/node-exporter
+        owner: test
+        group: test
+        state: directory
+      tags: [create-directory]
+
+    - name: Copy docker-compose file to host
+      copy:
+        src: /tmp/docker-compose.yml
+        dest: /opt/node-exporter/docker-compose.yml
+        owner: test
+        group: test
+      tags: [copy-compose]
+
+    - name: Run docker-compose
+      command: "docker-compose up -d"
+      args:
+        chdir: /opt/node-exporter
+      tags: [run-docker]
+
+    - name: Stop docker-compose
+      command: "docker-compose down"
+      args:
+        chdir: /opt/node-exporter
+      tags: [stop-docker]
